@@ -1,0 +1,5 @@
+stages:
+  model_build:
+    cmd: echo "Model already trained"
+    deps:
+      - diabetes_pipeline.pkl

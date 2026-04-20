@@ -1,0 +1,27 @@
+gender,ethnicity,education_level,income_level,employment_status,smoking_status,alcohol_consumption_per_week,physical_activity_minutes_per_week,diet_score,sleep_hours_per_day,screen_time_hours_per_day,family_history_diabetes,hypertension_history,cardiovascular_history,waist_to_hip_ratio,heart_rate,cholesterol_total,triglycerides,glucose_postprandial,insulin_level,hba1c,diabetes_risk_score,diabetes_stage,bmi_category,age_group,glucose_category,high_bp,cholesterol_ratio,lifestyle_risk_score
+Male,Asian,Highschool,Middle,Employed,Never,1,150,7,8,3,0,0,0,0.85,70,170,120,110,10,5.2,25,No Diabetes,Normal,Young,Normal,0,3.0,0.2
+Female,White,Bachelors,Middle,Employed,Former,3,60,5,6,6,1,0,0,0.95,80,210,180,150,18,6.0,55,Prediabetes,Overweight,Middle-aged,Prediabetes,0,4.5,0.5
+Male,Black,Masters,High,Employed,Current,6,20,3,5,9,1,1,1,1.1,95,260,250,220,30,9.0,85,Type 2,Obese,Old,Diabetes,1,6.5,0.9
+Male,Asian,Highschool,Low,Unemployed,Never,1,120,6,7,4,0,0,0,0.88,72,180,140,120,12,5.5,35,No Diabetes,Normal,Young,Normal,0,3.4,0.3
+Female,White,Bachelors,Middle,Employed,Former,3,60,5,6,6,1,0,0,0.95,80,210,180,150,18,6.0,55,Prediabetes,Overweight,Middle-aged,Prediabetes,0,4.5,0.5
+Male,Black,Masters,High,Employed,Current,6,20,3,5,9,1,1,1,1.1,95,260,250,220,30,9.0,85,Type 2,Obese,Old,Diabetes,1,6.5,0.9
+Female,Asian,Masters,High,Employed,Never,2,200,8,8,2,0,0,0,0.82,65,160,110,105,9,5.1,20,No Diabetes,Normal,Young,Normal,0,2.8,0.2
+Male,White,Bachelors,Low,Unemployed,Current,5,30,4,5,8,1,1,0,1.0,88,230,200,180,25,7.5,75,Type 2,Obese,Middle-aged,Diabetes,1,5.5,0.8
+Male,White,Bachelors,Low,Unemployed,Current,5,30,4,5,8,1,1,0,1.0,88,230,200,180,25,7.5,75,Type 2,Obese,Middle-aged,Diabetes,1,5.5,0.8
+Female,Black,Highschool,Middle,Employed,Never,2,90,6,6,5,1,0,0,0.92,78,200,160,140,17,6.2,60,Prediabetes,Overweight,Middle-aged,Prediabetes,0,4.2,0.6
+Male,Asian,Masters,High,Employed,Never,1,180,9,8,2,0,0,0,0.8,60,150,100,100,8,5.0,15,No Diabetes,Normal,Young,Normal,0,2.5,0.1
+Female,White,PhD,High,Employed,Former,3,100,7,7,4,1,1,0,0.9,75,190,150,130,14,5.8,50,Prediabetes,Overweight,Middle-aged,Prediabetes,1,4.0,0.5
+Male,Black,Highschool,Low,Unemployed,Current,7,10,2,4,10,1,1,1,1.2,100,280,300,250,35,10.0,90,Type 2,Obese,Old,Diabetes,1,7.0,1.0
+Female,Asian,Bachelors,Middle,Employed,Never,2,130,6,7,4,0,0,0,0.87,73,175,130,115,11,5.4,30,No Diabetes,Normal,Young,Normal,0,3.3,0.3
+Female,Asian,Bachelors,Middle,Employed,Never,2,130,6,7,4,0,0,0,0.87,73,175,130,115,11,5.4,30,No Diabetes,Normal,Young,Normal,0,3.3,0.3
+Male,Black,Highschool,Low,Unemployed,Current,7,10,2,4,10,1,1,1,1.2,100,280,300,250,35,10.0,90,Type 2,Obese,Old,Diabetes,1,7.0,1.0
+Female,White,PhD,High,Employed,Former,3,100,7,7,4,1,1,0,0.9,75,190,150,130,14,5.8,50,Prediabetes,Overweight,Middle-aged,Prediabetes,1,4.0,0.5
+Female,Black,Highschool,Middle,Employed,Never,2,90,6,6,5,1,0,0,0.92,78,200,160,140,17,6.2,60,Prediabetes,Overweight,Middle-aged,Prediabetes,0,4.2,0.6
+Female,White,PhD,High,Employed,Former,3,100,7,7,4,1,1,0,0.9,75,190,150,130,14,5.8,50,Prediabetes,Overweight,Middle-aged,Prediabetes,1,4.0,0.5
+Male,Black,Highschool,Low,Unemployed,Current,7,10,2,4,10,1,1,1,1.2,100,280,300,250,35,10.0,90,Type 2,Obese,Old,Diabetes,1,7.0,1.0
+Female,White,PhD,High,Employed,Former,3,100,7,7,4,1,1,0,0.9,75,190,150,130,14,5.8,50,Prediabetes,Overweight,Middle-aged,Prediabetes,1,4.0,0.5
+Male,Asian,Masters,High,Employed,Never,1,180,9,8,2,0,0,0,0.8,60,150,100,100,8,5.0,15,No Diabetes,Normal,Young,Normal,0,2.5,0.1
+Female,Asian,Bachelors,Middle,Employed,Never,2,130,6,7,4,0,0,0,0.87,73,175,130,115,11,5.4,30,No Diabetes,Normal,Young,Normal,0,3.3,0.3
+Male,Black,Highschool,Low,Unemployed,Current,7,10,2,4,10,1,1,1,1.2,100,280,300,250,35,10.0,90,Type 2,Obese,Old,Diabetes,1,7.0,1.0
+Male,Asian,Bachelors,Middle,Employed,Never,2,120,6,7,4,1,0,0,0.9,75,190,150,140,15,6.1,50,Prediabetes,Overweight,Middle-aged,Prediabetes,0,4.2,0.5
+Male,Asian,Bachelors,Middle,Employed,Never,2,100,6,7,4,1,0,0,0.9,72,180,140,135,14,6.0,50,Prediabetes,Overweight,Middle-aged,Prediabetes,0,4.0,0.5

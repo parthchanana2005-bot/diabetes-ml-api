@@ -1,0 +1,9 @@
+schema: '2.0'
+stages:
+  model_build:
+    cmd: echo "Model already trained"
+    deps:
+    - path: diabetes_pipeline.pkl
+      hash: md5
+      md5: 3b6796c6b68472c34f532f67176eb173
+      size: 4273167

@@ -1,0 +1,5 @@
+outs:
+- md5: 3b6796c6b68472c34f532f67176eb173
+  size: 4273167
+  hash: md5
+  path: diabetes_pipeline.pkl
