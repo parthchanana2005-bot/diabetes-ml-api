@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./App.css";
 
 function App() {
   const [formData, setFormData] = useState({
@@ -13,7 +14,15 @@ function App() {
     glucose_postprandial: "",
     hba1c: "",
     insulin_level: "",
-    diabetes_risk_score: ""
+    diabetes_risk_score: "",
+    waist_to_hip_ratio: "",
+    heart_rate: "",
+    triglycerides: "",
+    diet_score: "",
+    cardiovascular_history: "",
+    alcohol_consumption_per_week: "",
+    physical_activity_minutes_per_week: "",
+    screen_time: ""
   });
 
   const [result, setResult] = useState("");
@@ -27,48 +36,84 @@ function App() {
 
   const handleSubmit = async () => {
     try {
-      const response = await fetch("https://diabetes-ml-api-production-15e6.up.railway.app/predict", {
+      const response = await fetch("https://diabetes-ml-api-production-156e.up.railway.app/predict", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
         },
-        body: JSON.stringify(
-          Object.fromEntries(
-            Object.entries(formData).map(([k, v]) => [k, Number(v)])
-          )
-        )
+        body: JSON.stringify(formData) // ✅ sends ALL fields
       });
 
       const data = await response.json();
       setResult(JSON.stringify(data, null, 2));
+
     } catch (error) {
-      console.error(error);
       setResult("Error connecting to backend");
     }
   };
 
   return (
-    <div style={{ textAlign: "center", padding: "20px" }}>
-      <h1>Diabetes Predictor</h1>
+    <div style={{
+      minHeight: "100vh",
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      background: "linear-gradient(135deg, #6e8efb, #a777e3)"
+    }}>
+      <div style={{
+        backdropFilter: "blur(20px)",
+        background: "rgba(255,255,255,0.15)",
+        padding: "30px",
+        borderRadius: "20px",
+        width: "350px",
+        boxShadow: "0 10px 30px rgba(0,0,0,0.2)"
+      }}>
+        <h1 style={{ textAlign: "center", color: "white" }}>
+          Diabetes Predictor
+        </h1>
 
-      {Object.keys(formData).map((key) => (
-        <div key={key} style={{ margin: "5px" }}>
+        {Object.keys(formData).map((key) => (
           <input
+            key={key}
             name={key}
             placeholder={key}
             value={formData[key]}
             onChange={handleChange}
-            style={{ padding: "8px", width: "250px" }}
+            style={{
+              width: "100%",
+              padding: "10px",
+              margin: "8px 0",
+              borderRadius: "8px",
+              border: "none"
+            }}
           />
-        </div>
-      ))}
+        ))}
 
-      <br />
-      <button onClick={handleSubmit} style={{ padding: "10px 20px" }}>
-        Predict
-      </button>
+        <button
+          onClick={handleSubmit}
+          style={{
+            width: "100%",
+            padding: "12px",
+            marginTop: "15px",
+            borderRadius: "10px",
+            border: "none",
+            background: "linear-gradient(45deg, #ff416c, #ff4b2b)",
+            color: "white",
+            fontWeight: "bold",
+            cursor: "pointer"
+          }}
+        >
+          🚀 Predict
+        </button>
 
-      <pre style={{ marginTop: "20px" }}>{result}</pre>
+        <pre style={{
+          marginTop: "15px",
+          color: "white",
+          fontSize: "12px"
+        }}>
+          {result}
+        </pre>
+      </div>
     </div>
   );
 }

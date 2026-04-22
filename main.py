@@ -1,69 +1,31 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-import pandas as pd
-import joblib
 
-# Initialize app
+# Create FastAPI app
 app = FastAPI()
 
-# ✅ CORS FIX (VERY IMPORTANT)
+# Enable CORS (VERY IMPORTANT for React)
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # allow all (frontend connection fix)
+    allow_origins=["*"],  # allow all for now
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-# ✅ Load model
-model = joblib.load("classification_model.pkl")
-
-# ✅ Home route
+# -------------------------------
+# TEST ROUTE (CHECK IF API RUNS)
+# -------------------------------
 @app.get("/")
 def home():
-    return {"message": "Diabetes ML API is running"}
+    return {"message": "API is working perfectly 🚀"}
 
-# ✅ Prediction route
+# -------------------------------
+# TEST PREDICT ROUTE
+# -------------------------------
 @app.post("/predict")
 def predict(data: dict):
-    try:
-        # Convert input to DataFrame
-        df = pd.DataFrame([data])
-
-        # Expected columns (VERY IMPORTANT)
-        required_columns = [
-            "pregnancies",
-            "glucose",
-            "blood_pressure",
-            "skin_thickness",
-            "insulin",
-            "bmi",
-            "diabetes_pedigree_function",
-            "age",
-            "glucose_postprandial",
-            "hba1c",
-            "insulin_level",
-            "diabetes_risk_score"
-        ]
-
-        # Check missing columns
-        missing = set(required_columns) - set(df.columns)
-        if missing:
-            return {
-                "error": f"Missing columns: {missing}"
-            }
-
-        # Ensure correct column order
-        df = df[required_columns]
-
-        # Prediction
-        prediction = model.predict(df)
-
-        return {
-            "prediction": int(prediction[0])
-        }
-
-    except Exception as e:
-        return {
-            "error": str(e)
-        }
+    return {
+        "status": "success",
+        "received_data": data
+    }
