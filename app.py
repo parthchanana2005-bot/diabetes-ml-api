@@ -1,11 +1,21 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
+from fastapi.middleware.cors import CORSMiddleware
 import joblib
 import os
 import numpy as np
 
-# Initialize app
+# Initialize FastAPI app
 app = FastAPI()
+
+# 🔥 CORS FIX (VERY IMPORTANT)
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],   # allow all origins (React localhost + deployed frontend)
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 # Load model files safely
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -47,10 +57,10 @@ def predict(data: InputData):
     try:
         input_dict = data.dict()
 
-        # Convert to array in correct order
+        # Convert input to array
         input_values = np.array([list(input_dict.values())])
 
-        # Apply pipeline if needed
+        # Apply pipeline
         transformed = pipeline.transform(input_values)
 
         # Predict

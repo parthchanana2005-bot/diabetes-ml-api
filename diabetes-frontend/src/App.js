@@ -22,7 +22,7 @@ function App() {
     cardiovascular_history: "",
     alcohol_consumption_per_week: "",
     physical_activity_minutes_per_week: "",
-    screen_time: ""
+    screen_time: "",
   });
 
   const [result, setResult] = useState("");
@@ -30,45 +30,62 @@ function App() {
   const handleChange = (e) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
   const handleSubmit = async () => {
     try {
-      const response = await fetch("https://diabetes-ml-api-production-156e.up.railway.app/predict", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(formData) // ✅ sends ALL fields
-      });
+      const response = await fetch(
+        "https://diabetes-ml-api-production-156e.up.railway.app/predict",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(
+            Object.fromEntries(
+              Object.entries(formData).map(([k, v]) => [k, parseFloat(v)])
+            )
+          ),
+        }
+      );
 
       const data = await response.json();
-      setResult(JSON.stringify(data, null, 2));
 
+      if (data.prediction !== undefined) {
+        setResult("Prediction: " + data.prediction);
+      } else {
+        setResult("Error: " + JSON.stringify(data));
+      }
     } catch (error) {
+      console.error(error);
       setResult("Error connecting to backend");
     }
   };
 
   return (
-    <div style={{
-      minHeight: "100vh",
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
-      background: "linear-gradient(135deg, #6e8efb, #a777e3)"
-    }}>
-      <div style={{
-        backdropFilter: "blur(20px)",
-        background: "rgba(255,255,255,0.15)",
-        padding: "30px",
-        borderRadius: "20px",
-        width: "350px",
-        boxShadow: "0 10px 30px rgba(0,0,0,0.2)"
-      }}>
-        <h1 style={{ textAlign: "center", color: "white" }}>
+    <div
+      style={{
+        minHeight: "100vh",
+        background:
+          "linear-gradient(135deg, #5f5fc4, #8f6ed5, #c77dd8)",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      <div
+        style={{
+          background: "rgba(255,255,255,0.15)",
+          backdropFilter: "blur(15px)",
+          padding: "30px",
+          borderRadius: "20px",
+          width: "400px",
+          boxShadow: "0 8px 32px rgba(0,0,0,0.2)",
+        }}
+      >
+        <h1 style={{ textAlign: "center", color: "#fff" }}>
           Diabetes Predictor
         </h1>
 
@@ -81,10 +98,10 @@ function App() {
             onChange={handleChange}
             style={{
               width: "100%",
-              padding: "10px",
               margin: "8px 0",
-              borderRadius: "8px",
-              border: "none"
+              padding: "10px",
+              borderRadius: "10px",
+              border: "none",
             }}
           />
         ))}
@@ -94,25 +111,21 @@ function App() {
           style={{
             width: "100%",
             padding: "12px",
-            marginTop: "15px",
+            marginTop: "10px",
             borderRadius: "10px",
             border: "none",
-            background: "linear-gradient(45deg, #ff416c, #ff4b2b)",
-            color: "white",
+            background: "#ff4b5c",
+            color: "#fff",
             fontWeight: "bold",
-            cursor: "pointer"
+            cursor: "pointer",
           }}
         >
           🚀 Predict
         </button>
 
-        <pre style={{
-          marginTop: "15px",
-          color: "white",
-          fontSize: "12px"
-        }}>
+        <p style={{ marginTop: "15px", color: "#fff", textAlign: "center" }}>
           {result}
-        </pre>
+        </p>
       </div>
     </div>
   );
